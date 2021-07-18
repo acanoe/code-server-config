@@ -24,10 +24,14 @@ RUN sudo chown -R coder:coder /home/coder/.local
 
 # Install a VS Code extension:
 # Note: we use a different marketplace than VS Code. See https://github.com/cdr/code-server/blob/main/docs/FAQ.md#differences-compared-to-vs-code
-# RUN code-server --install-extension esbenp.prettier-vscode
+RUN code-server --install-extension esbenp.prettier-vscode ms-python.python
 
 # Install apt packages:
 # RUN sudo apt-get install -y ubuntu-make
+
+# Install NodeJS
+RUN sudo curl -fsSL https://deb.nodesource.com/setup_16.x | sudo bash -
+RUN sudo apt-get install -y nodejs
 
 # Copy files: 
 # COPY deploy-container/myTool /home/coder/myTool
